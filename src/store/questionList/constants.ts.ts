@@ -1,0 +1,3 @@
+export const LIST_GET_REQUEST = `@LIST/GET/REQUEST`;
+export const LIST_GET_SUCCESS = `@LIST/GET/SUCCESS`;
+export const LIST_GET_FAILURE = `@LIST/GET/FAILURE`;

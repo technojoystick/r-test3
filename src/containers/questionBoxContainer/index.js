@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import Loader from '../../components/loader';
 import QuestionBox from '../../components/questionBox';
 import ResultBox from '../../components/resultBox';
@@ -22,7 +22,11 @@ export function getRandomedList<T: ListUnit>({ correct_answer: correctAnswer, in
     return shuffleArray([...incorrectAnswers.slice(0, rIndex), correctAnswer, ...incorrectAnswers.slice(rIndex)]);
 }
 
-class QuestionBoxContainer extends Component<{}, TState> {
+function a() {
+
+}
+
+class QuestionBoxContainer extends React.Component<{}, TState> {
     state = {
         activeIndex: 0,
         activeValue: '',
