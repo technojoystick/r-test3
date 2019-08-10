@@ -3,9 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const ENTRY_POINTS = path.join(__dirname, 'src/index.js');
-
-console.log(__dirname);
+const ENTRY_POINTS = path.join(__dirname, 'src/index.tsx');
 
 module.exports = {
     entry: ENTRY_POINTS,
@@ -14,6 +12,10 @@ module.exports = {
         filename: 'app.js',
         path: path.resolve(path.join(__dirname, 'dist')),
         publicPath: '/',
+    },
+
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js'],
     },
 
     module: {

@@ -1,9 +1,11 @@
-// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import { TProps } from './questionList.types';
 
-const QuestionList = <T: TProps>({ list, changeHandler, name }: T) => {
+const QuestionList = ({ list, setDisabledNext, name }: TProps) => {
+    const changeHandler = React.useCallback((e) => {
+        setDisabledNext(false);
+    }, []);
+
     return (
         <ul className='question-list'>
             {list.map(unit => (
@@ -29,12 +31,6 @@ const QuestionList = <T: TProps>({ list, changeHandler, name }: T) => {
             ))}
         </ul>
     );
-};
-
-QuestionList.propTypes = {
-    changeHandler: PropTypes.func.isRequired,
-    list: PropTypes.arrayOf(PropTypes.string).isRequired,
-    name: PropTypes.string.isRequired,
 };
 
 export default QuestionList;

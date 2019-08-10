@@ -1,6 +1,4 @@
-// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import StatisticList from '../statisticList';
 import { ListUnit } from '../../containers/questionBoxContainer/questionBoxContainer.types';
 import { FilterByDiffList, TProps } from './resultBox.types';
@@ -21,7 +19,7 @@ export function filterByDifficulty(list: Array<ListUnit>): FilterByDiffList {
     }, {});
 }
 
-const ResultBox = <T: TProps>({ chosenList, list, refreshApp, repeatApp }: T) => {
+const ResultBox = ({ chosenList, list, refreshApp, repeatApp }: TProps) => {
     const truthfullyList = addTruthfully(chosenList, list);
     const filteredDataByDifficulty = filterByDifficulty(truthfullyList);
 
@@ -48,21 +46,6 @@ const ResultBox = <T: TProps>({ chosenList, list, refreshApp, repeatApp }: T) =>
             </div>
         </div>
     );
-};
-
-ResultBox.propTypes = {
-    chosenList: PropTypes.arrayOf(PropTypes.string).isRequired,
-    list: PropTypes.arrayOf(PropTypes.shape({
-        category: PropTypes.string,
-        type: PropTypes.string,
-        difficulty: PropTypes.string,
-        question: PropTypes.string,
-        correct_answer: PropTypes.string,
-        incorrect_answers: PropTypes.arrayOf(PropTypes.string),
-        randomizedList: PropTypes.arrayOf(PropTypes.string),
-    })).isRequired,
-    refreshApp: PropTypes.func.isRequired,
-    repeatApp: PropTypes.func.isRequired,
 };
 
 export default ResultBox;

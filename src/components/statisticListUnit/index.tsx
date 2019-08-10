@@ -1,6 +1,4 @@
-// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import { TProps } from './statisticListUnit.types';
 import { ListUnit } from '../../containers/questionBoxContainer/questionBoxContainer.types';
 
@@ -11,7 +9,7 @@ function truthfullyCount(value: Array<ListUnit>): number {
     }, 0);
 }
 
-const StatisticListUnit = <T: TProps>({ name, value }: T) => (
+const StatisticListUnit = ({ name, value }: TProps) => (
     <div className='statistic-list__unit'>
         <h3>{name}</h3>
         {
@@ -39,18 +37,5 @@ const StatisticListUnit = <T: TProps>({ name, value }: T) => (
         </p>
     </div>
 );
-
-StatisticListUnit.propTypes = {
-    name: PropTypes.string.isRequired,
-    value: PropTypes.arrayOf(PropTypes.shape({
-        category: PropTypes.string,
-        type: PropTypes.string,
-        difficulty: PropTypes.string,
-        question: PropTypes.string,
-        correct_answer: PropTypes.string,
-        incorrect_answers: PropTypes.arrayOf(PropTypes.string),
-        truthfully: PropTypes.bool,
-    })).isRequired,
-};
 
 export default StatisticListUnit;

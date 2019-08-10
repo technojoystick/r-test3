@@ -13,7 +13,7 @@ export type ListUnit = {
 export type TState = {
     activeIndex: number,
     activeValue: string,
-    error: ?string,
+    error: string,
     list: Array<ListUnit>,
     resultVisible: boolean,
 }

@@ -1,5 +1,5 @@
 import { addTruthfully, filterByDifficulty } from './index';
-import { hitch } from '../../hitch';
+import { hitch } from '../../utils/hitch';
 
 describe('>>>ResultBox', () => {
     const tmpChosenList = [];

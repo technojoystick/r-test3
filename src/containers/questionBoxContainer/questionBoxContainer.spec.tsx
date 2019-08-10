@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import QuestionBoxContainer, { shuffleArray, getRandomedList } from './index';
 import Loader from '../../components/loader';
 import QuestionBox from '../../components/questionBox';
-import { hitch } from '../../hitch';
+import { hitch } from '../../utils/hitch';
 
 function diff(a1, a2) {
     return a1.filter(i => !a2.includes(i))

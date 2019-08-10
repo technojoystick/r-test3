@@ -1,5 +1,5 @@
 export type TProps = {
     list: Array<string>,
-    changeHandler: Function,
+    setDisabledNext: Function,
     name: string,
 }

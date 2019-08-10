@@ -1,11 +1,11 @@
 {
   "name": "r-test",
   "version": "1.0.0",
-  "main": "./src/index.js",
+  "main": "./src/index.tsx",
   "private": true,
   "description": "test test",
   "scripts": {
-    "eslint": "eslint src/**/*.js",
+    "eslint": "eslint src/**/*.tsx",
     "test": "jest --colors",
     "build": "webpack --mode production",
     "start": "webpack-dev-server"
@@ -15,6 +15,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "7.4.5",
     "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
     "axios-mock-adapter": "1.16.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
@@ -24,7 +25,6 @@
     "enzyme-adapter-react-16": "1.14.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-rambler": "^0.3.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "7.13.0",
