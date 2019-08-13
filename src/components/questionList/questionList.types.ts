@@ -1,5 +1,6 @@
+import { TListUnit } from '../../types/list';
+
 export type TProps = {
-    list: Array<string>,
-    setDisabledNext: Function,
-    name: string,
+    item: TListUnit,
+    changeHandler: Function,
 }

@@ -1,7 +1,9 @@
-import {ListUnit} from "../../containers/questionBoxContainer/questionBoxContainer.types";
+import { TListUnit } from '../../types/list';
 
 export type TProps = {
-    item: ListUnit,
+    item: TListUnit,
     isLastItem: boolean,
-    handleNext: Function
+    disabledNext: boolean,
+    handleSubmit: Function
+    setDisabledNext: Function
 }

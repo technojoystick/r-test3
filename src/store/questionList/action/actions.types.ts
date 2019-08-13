@@ -1,4 +1,4 @@
-import {LIST_GET_REQUEST, LIST_GET_SUCCESS, LIST_GET_FAILURE} from "../constants.ts";
+import {LIST_GET_REQUEST, LIST_GET_SUCCESS, LIST_GET_FAILURE} from "../constants";
 import {TListUnit} from "../../../types/list";
 import {IAction} from "../../../types/redux";
 

@@ -1,13 +1,5 @@
-import { ListUnit } from '../../containers/questionBoxContainer/questionBoxContainer.types';
+import { TListUnit } from '../../types/list';
 
-export type TProps = {
-    chosenList: Array<string>,
-    list: Array<ListUnit>,
-    refreshApp: Function,
-    repeatApp: Function,
-}
-
-
-export type FilterByDiffList = {
-    [key: string]: Array<ListUnit>,
+export type TFilterByDiffList = {
+    [key: string]: Array<TListUnit>,
 }

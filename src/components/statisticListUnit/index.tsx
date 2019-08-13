@@ -1,8 +1,8 @@
 import React from 'react';
+import { TListUnit } from '../../types/list';
 import { TProps } from './statisticListUnit.types';
-import { ListUnit } from '../../containers/questionBoxContainer/questionBoxContainer.types';
 
-function truthfullyCount(value: Array<ListUnit>): number {
+function truthfullyCount(value: Array<TListUnit>): number {
     return value.reduce((acc, item) => {
         if (item.truthfully) return acc + 1;
         return acc;

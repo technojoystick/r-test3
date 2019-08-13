@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import {Router, Route, Switch, Redirect} from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 // Pages
 import MainLayout from './layouts/mainLayout';

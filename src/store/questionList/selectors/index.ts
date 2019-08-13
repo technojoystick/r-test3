@@ -1,11 +1,8 @@
 import {createSelector} from 'reselect';
 
-import {TRootState} from "../../../types/redux";
+import { TRequestStatus, TRootState } from "../../../types/redux";
 import {TListUnit} from "../../../types/list";
-// import {getRandomedList} from '../../../containers/questionBoxContainer';
 import {getRandomedList} from '../../../utils/getRandomedList';
-
-// export const selectSelectedList = (state: TRootState): Array<TListUnit> => state.list.list;
 
 export const selectSelectedList = createSelector<
     TRootState,
@@ -17,3 +14,7 @@ export const selectSelectedList = createSelector<
         randomizedList: getRandomedList(unit),
     }))
 );
+
+export const selectSelectedListStatus = (state: TRootState): TRequestStatus => state.list.status;
+
+export const selectSelectedListError = (state: TRootState): string => state.list.error;

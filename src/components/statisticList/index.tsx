@@ -1,8 +1,8 @@
 import React from 'react';
 import StatisticListUnit from '../statisticListUnit';
-import {FilterByDiffList} from '../resultBox/resultBox.types';
+import {TFilterByDiffList} from '../resultBox/resultBox.types';
 
-const StatisticList = ({data}: { data: FilterByDiffList }) => (
+const StatisticList = ({data}: { data: TFilterByDiffList }) => (
     <div className='statistic-list'>
         {Object.keys(data)
             .map((key) => (

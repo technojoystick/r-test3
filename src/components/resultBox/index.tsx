@@ -1,16 +1,23 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { useSelectedAnswers } from '../../hooks/useSelectedAnswers';
+import { useSelectedList } from '../../hooks/useSelectedList';
+import { TListAnswers, TListUnit } from '../../types/list';
 import StatisticList from '../statisticList';
-import { ListUnit } from '../../containers/questionBoxContainer/questionBoxContainer.types';
-import { FilterByDiffList, TProps } from './resultBox.types';
+import { TFilterByDiffList } from './resultBox.types';
 
-export function addTruthfully(chosenList: Array<string>, list: Array<ListUnit>): Array<ListUnit> {
-    return list.map((element, indx) => ({
-        ...element,
-        truthfully: element.correct_answer === chosenList[indx],
-    }));
+export function addTruthfully(chosenList: TListAnswers, list: Array<TListUnit>): Array<TListUnit> {
+    return list.map((element, indx) => {
+        const truthfully = chosenList[indx].includes(element.correct_answer) && chosenList[indx].length === 1;
+
+        return ({
+            ...element,
+            truthfully,
+        });
+    });
 }
 
-export function filterByDifficulty(list: Array<ListUnit>): FilterByDiffList {
+export function filterByDifficulty(list: Array<TListUnit>): TFilterByDiffList {
     return list.reduce((acc, element) => {
         acc.hasOwnProperty(element.difficulty)
             ? acc[element.difficulty].push(element)
@@ -19,7 +26,10 @@ export function filterByDifficulty(list: Array<ListUnit>): FilterByDiffList {
     }, {});
 }
 
-const ResultBox = ({ chosenList, list, refreshApp, repeatApp }: TProps) => {
+function ResultBox() {
+    const list = useSelectedList();
+    const chosenList = useSelectedAnswers();
+
     const truthfullyList = addTruthfully(chosenList, list);
     const filteredDataByDifficulty = filterByDifficulty(truthfullyList);
 
@@ -29,23 +39,15 @@ const ResultBox = ({ chosenList, list, refreshApp, repeatApp }: TProps) => {
                 <StatisticList data={filteredDataByDifficulty} />
             </div>
             <div className='result-box__row result-box__row_controls'>
-                <button
-                    type='button'
-                    className='btn'
-                    onClick={repeatApp}
-                >
-                    Repeat
-                </button>
-                <button
-                    type='button'
+                <Link
                     className='btn btn_blue'
-                    onClick={refreshApp}
+                    to={'/'}
                 >
                     Get new questions
-                </button>
+                </Link>
             </div>
         </div>
     );
-};
+}
 
 export default ResultBox;

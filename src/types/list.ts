@@ -8,3 +8,5 @@ export type TListUnit = {
     randomizedList?: string[],
     truthfully?: boolean
 }
+
+export type TListAnswers = string[][];

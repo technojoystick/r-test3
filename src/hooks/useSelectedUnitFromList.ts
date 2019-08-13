@@ -16,7 +16,7 @@ export function useSelectedUnitFromList(items: Array<TListUnit>): {
         setActiveIndex((activeIndex) => activeIndex + 1);
     }, []);
 
-    const isLastItem: boolean = activeItem === items.length;
+    const isLastItem: boolean = activeIndex + 1 === items.length;
 
     return {
         activeItem,

@@ -1,36 +1,40 @@
-import React from 'react';
+import * as React from 'react';
 import { TProps } from './questionList.types';
+import InputRadioItem from "../inputRadioItem";
+import InputCheckboxItem from "../inputCheckboxItem";
+import { QuestionTypes } from "../../constants";
 
-const QuestionList = ({ list, setDisabledNext, name }: TProps) => {
-    const changeHandler = React.useCallback((e) => {
-        setDisabledNext(false);
-    }, []);
-
-    return (
-        <ul className='question-list'>
-            {list.map(unit => (
+const QuestionList = ({ item, changeHandler }: TProps) => {
+    switch (item.type) {
+        case QuestionTypes.BOOLEAN:
+            return (item.randomizedList.map(unit => (
                 <li
                     key={unit}
                     className='question-list__item'
                 >
-                    <label htmlFor={unit}>
-                        <span className='masked-input'>
-                            <input
-                                id={unit}
-                                className='masked-input__unit'
-                                name={name}
-                                onChange={changeHandler}
-                                type='radio'
-                                value={unit}
-                            />
-                            <span className='masked-input__mask' />
-                            <span>{unit}</span>
-                        </span>
-                    </label>
+                    <InputRadioItem
+                        name={item.type}
+                        value={unit}
+                        changeHandler={changeHandler}
+                    />
                 </li>
-            ))}
-        </ul>
-    );
+            )));
+        case QuestionTypes.MULTIPLE:
+            return (item.randomizedList.map(unit => (
+                <li
+                    key={unit}
+                    className='question-list__item'
+                >
+                    <InputCheckboxItem
+                        name={item.type}
+                        value={unit}
+                        changeHandler={changeHandler}
+                    />
+                </li>
+            )));
+        default:
+            return null;
+    }
 };
 
 export default QuestionList;

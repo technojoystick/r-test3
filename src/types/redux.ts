@@ -1,13 +1,16 @@
 import {RequestStatuses} from "../constants";
 import {TListState} from "../store/questionList/reducer/reducer.types";
 import {TListActions} from "../store/questionList/action/actions.types";
+import {TAnswersActions, TAnswersState} from "../store/answers/reducer/reducer.types";
 
 export type TRootState = {
     readonly list: TListState;
+    readonly answers: TAnswersState;
 };
 
 export type TRootActions =
-    TListActions;
+    | TListActions
+    | TAnswersActions;
 
 export interface IAction<T, P = {}, M = {}> {
     type: T;
