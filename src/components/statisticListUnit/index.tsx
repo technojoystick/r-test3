@@ -1,5 +1,6 @@
 import React from 'react';
 import { TListUnit } from '../../types/list';
+import { htmlDecode } from '../../utils/htmlDecode'; 
 import { TProps } from './statisticListUnit.types';
 
 function truthfullyCount(value: Array<TListUnit>): number {
@@ -18,7 +19,7 @@ const StatisticListUnit = ({ name, value }: TProps) => (
                     key={item.correct_answer}
                     className='statistic-list__unit-item'
                 >
-                    <p>{item.question}</p>
+                    <p>{htmlDecode(item.question)}</p>
                     <p>
                         <span>The answer is </span>
                         <span className={`statistic-list__unit-answ ${
